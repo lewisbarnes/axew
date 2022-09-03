@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function middleware(request: NextRequest) {
 	const slug = request.nextUrl.pathname.split('/').pop();
 
-	const shortLink = await fetch(`${request.nextUrl.origin}/api/url/${slug}`);
+	const shortLink = await fetch(`${request.nextUrl.origin}/api/url/get/${slug}`);
 
 	if(shortLink.status === 404) {
 		return NextResponse.redirect(request.nextUrl.origin);
