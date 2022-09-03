@@ -14,7 +14,7 @@ model Shortlink {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   slug      String   @unique
   url       String
-  createdAt DateTime
-  expiresAt DateTime
-  hits      Int
+  createdAt DateTime @default(now())
+  expiresAt DateTime @default(now())
+  hits      Int? @default(0)
 }

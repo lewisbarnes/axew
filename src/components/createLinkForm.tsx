@@ -25,9 +25,50 @@ const CreateLinkForm: React.FC = () => {
 			setForm({ slug: '', url: '' });
 		}
 	};
-	if(returnShortLink.length == 0) {
+	if (returnShortLink.length == 0) {
 		return (
 			<form className="input-form">
+				<div className="input-control-row">
+					<label htmlFor="slug">{host}/s/</label>
+					<input
+						type="text"
+						name="slug"
+						value={form.slug}
+						placeholder="Hitmonchan"
+						onChange={(e) => {
+							setForm({ ...form, slug: e.target.value });
+						}}
+					/>
+
+					<input
+						className="button"
+						type="button"
+						value="random"
+						onClick={(e) => {
+							setForm({ ...form, slug: nanoid(10) });
+						}}
+					/>
+				</div>
+				<div className="input-control-row">
+					<label htmlFor="url">url</label>
+					<input
+						type="text"
+						name="url"
+						placeholder="https://lewisbarnes.dev/"
+						value={form.url}
+						onChange={(e) => {
+							setForm({ ...form, url: e.target.value });
+						}}
+					/>
+				</div>
+				<input type="button" className="button" value="create" onClick={createSlug} />
+			</form>
+		);
+	}
+
+	return (
+		<form className="input-form">
+			<div className="input-control-row">
 				<label htmlFor="slug">{host}/s/</label>
 				<input
 					type="text"
@@ -38,6 +79,7 @@ const CreateLinkForm: React.FC = () => {
 						setForm({ ...form, slug: e.target.value });
 					}}
 				/>
+
 				<input
 					className="button"
 					type="button"
@@ -46,6 +88,8 @@ const CreateLinkForm: React.FC = () => {
 						setForm({ ...form, slug: nanoid(10) });
 					}}
 				/>
+			</div>
+			<div className="input-control-row">
 				<label htmlFor="url">url</label>
 				<input
 					type="text"
@@ -56,51 +100,14 @@ const CreateLinkForm: React.FC = () => {
 						setForm({ ...form, url: e.target.value });
 					}}
 				/>
-				<input type="button" className="submit-button" value="create" onClick={createSlug} />
-			</form>
-		);
-	}
-
-	return (
-		<form className="input-form">
-			<label htmlFor="slug">{host}/s/</label>
-			<input
-				type="text"
-				name="slug"
-				value={form.slug}
-				placeholder="Hitmonchan"
-				onChange={(e) => {
-					setForm({ ...form, slug: e.target.value });
-				}}
-			/>
-			<input
-				className="button"
-				type="button"
-				value="random"
-				onClick={(e) => {
-					setForm({ ...form, slug: nanoid(10) });
-				}}
-			/>
-			<label htmlFor="url">url</label>
-			<input
-				type="text"
-				name="url"
-				placeholder="https://lewisbarnesss.dev/"
-				value={form.url}
-				onChange={(e) => {
-					setForm({ ...form, url: e.target.value });
-				}}
-			/>
-			<label htmlFor="shortlink">short-link</label>
-				<input
-				type="text"
-				name="shortlink"
-				value={returnShortLink}
-			/>
-			<input type="button" className="submit-button" value="create" onClick={createSlug} />
+			</div>
+			<div className="input-control-row">
+				<label htmlFor="shortlink">short-link</label>
+				<input type="text" name="shortlink" value={returnShortLink} />
+			</div>
+			<input type="button" className="button" value="create" onClick={createSlug} />
 		</form>
 	);
-
 };
 
 export default CreateLinkForm;

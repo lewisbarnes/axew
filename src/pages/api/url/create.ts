@@ -5,14 +5,14 @@ export const CreateHandler = async (req: NextApiRequest, res: NextApiResponse) =
 	if(req.method === 'POST') {
 		const { slug, url } = JSON.parse(req.body);
 		console.log(slug);
-		const slugMatch = await prisma.shortlink.findFirst({
+		const slugMatch = await prisma.shortlink.count({
 			where: {
 				slug: {
 					equals: slug,
 				},
 			},
 		})
-		if(slugMatch) {
+		if(slugMatch > 0) {
 			res.statusCode = 400;
 			res.send(JSON.stringify({message: 'slug already in use'}));
 			return;
@@ -21,12 +21,10 @@ export const CreateHandler = async (req: NextApiRequest, res: NextApiResponse) =
 			data: {
 				slug: slug,
 				url: url,
-				createdAt: new Date(Date.now()),
-				expiresAt: new Date(Date.now()),
-				hits: 0,
 			},
 			select: {slug: true},
 		});
+		res.statusCode = 201;
 		return res.json(data);
 	} else {
 		res.statusCode = 405;
