@@ -103,4 +103,4 @@ const CreateLinkForm: React.FC = () => {
 
 };
 
-export default createLinkForm;
+export default CreateLinkForm;
