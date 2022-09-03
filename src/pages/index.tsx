@@ -18,7 +18,10 @@ const Home: NextPage = () => {
 		<main>
 			<Head>
 				<title>axew</title>
-				<meta name="description" content="link shortener" />
+				<meta property='og:title' content='axew'/>
+				<meta property="og:description" content="A Link Shortener"/>
+				<meta property="og:site_name" content="lewisbarnes.dev" />
+				<meta property="og:image" content="https://axew.lewisbarnes.dev/axew.png"/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<div className="axew-img">
