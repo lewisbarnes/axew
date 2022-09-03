@@ -1,3 +1,10 @@
+:root {
+	--bg-primary: rgb(49,49,49);
+	--bg-secondary: rgb(64, 64, 64);
+	--bg-tertiary: rgb(166,174,137);
+}
+
+
 html,
 body {
   padding: 0;
@@ -11,13 +18,8 @@ a {
   text-decoration: none;
 }
 
-html {
-	padding: 0;
-	margin: 0;
-}
-
 body {
-	background-color: rgb(49,49,49);
+	background-color: var(--bg-primary);
 }
 
 * {
@@ -36,7 +38,7 @@ body {
 	position: relative;
 	text-align: end;
 	padding: 1rem;
-	background-color: rgb(65, 64, 64);
+	background-color: var(--bg-secondary);
 	border-radius: 0.5rem;
 }
 
@@ -59,7 +61,7 @@ input {
 
 .button {
 	outline: 0;
-	background-color: rgb(49, 49, 49);
+	background-color: var(--bg-tertiary);
 	border-radius: 0.5rem;
 	padding-left: 1rem;
 	padding-right: 1rem;
@@ -98,9 +100,19 @@ label {
 }
 
 .footer {
-	background-color: rgb(65, 64, 64);;
+	background-color: var(--bg-secondary);
 	bottom: 0;
 	position: absolute;
 	padding: 0.5rem;
 	width: 100vw;
+}
+
+.file-input-drag-drop {
+	display:none;
+}
+
+.file-upload-form {
+	padding: 4rem;
+	border: 1px solid white;
+	background-color: var(--bg-secondary);
 }
