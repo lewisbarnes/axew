@@ -1,8 +1,6 @@
-import { GetServerSideProps, NextPage } from 'next';
+import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
-import { useState } from 'react';
-import { nanoid } from 'nanoid';
 
 type Form = {
 	slug: string;

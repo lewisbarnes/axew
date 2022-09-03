@@ -6,7 +6,7 @@ type Form = {
 	url: string;
 };
 
-const createLinkForm = () => {
+const createLinkForm: React.FC = () => {
 	const [form, setForm] = useState<Form>({ slug: '', url: '' });
 	const [returnShortLink, setReturnShortLink] = useState('');
 	const host = window.location.origin;
