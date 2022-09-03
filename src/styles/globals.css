@@ -11,6 +11,85 @@ a {
   text-decoration: none;
 }
 
+html {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: black;
+}
+
 * {
+	color: white;
   box-sizing: border-box;
+}
+
+.main {
+	margin-left: auto;
+	margin-right: auto;
+	height:100vh;
+	background-color: rgb(49, 49, 49);
+}
+
+.main > h1 {
+	margin:0;
+	text-align: center;
+}
+
+p {
+	margin: 0;
+}
+
+.input-form {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-auto-rows: auto;
+	width: min-content;
+	margin-left:auto;
+	margin-right: auto;
+	margin-top: 1rem;
+	position: relative;
+	text-align: end;
+	gap: 1rem;
+	padding: 0.5rem;
+	background-color: rgb(82, 78, 78);
+	border-radius: 0.5rem;
+}
+
+label {
+	width: auto;
+}
+
+input {
+	background-color: transparent;
+	outline: 0;
+	border: 1px solid white;
+	width: 300px;
+	border-radius: 0.5rem;
+}
+
+.input-form > .submit-button  {
+	grid-column-start: 2;
+	width: min-content;
+	margin-left: auto;
+	margin-right: auto;
+	outline: 0;
+	background-color: rgb(49, 49, 49);
+	border-radius: 0.5rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	border: 0;
+}
+
+.axew-img {
+	width: 200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.input-form > input:focus {
+	outline: 0;
 }
