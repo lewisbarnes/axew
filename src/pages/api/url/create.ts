@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "../../../server/db/client";
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export const CreateHandler = async (req: NextApiRequest, res: NextApiResponse) => {
 	if(req.method === 'POST') {
 		const { slug, url } = JSON.parse(req.body);
 		console.log(slug);
@@ -34,3 +34,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 	}
 
 };
+
+export default CreateHandler;
