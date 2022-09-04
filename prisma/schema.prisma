@@ -4,7 +4,6 @@
 generator client {
   provider = "prisma-client-js"
 }
-
 datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
@@ -17,4 +16,12 @@ model Shortlink {
   createdAt DateTime @default(now())
   expiresAt DateTime @default(now())
   hits      Int? @default(0)
+}
+
+model TextPaste {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  slug      String   @unique
+	content 	String
+  createdAt DateTime @default(now())
+  expiresAt DateTime @default(now())
 }

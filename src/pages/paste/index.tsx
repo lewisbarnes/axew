@@ -1,18 +1,17 @@
-import { NextPage } from 'next';
-import dynamic from 'next/dynamic';
-import Head from 'next/head';
-import Footer from '../components/footer';
+import { NextPage } from "next";
+import dynamic from "next/dynamic";
+import Head from "next/head";
+import { useState } from "react";
+import Footer from "../../components/footer";
 
-type Form = {
-	slug: string;
-	url: string;
-};
-
-const CreateLinkForm = dynamic(() => import('../components/createLinkForm'), {
+const PasteForm = dynamic(() => import('../../components/pasteForm'), {
 	ssr: false,
 });
 
-const Home: NextPage = () => {
+const PasteHome: NextPage = () => {
+
+	const [pasteValue, setPasteValue] = useState('');
+	const [pasteTitle, setPasteTitle] = useState('');
 	return (
 		<>
 			<main>
@@ -27,11 +26,11 @@ const Home: NextPage = () => {
 				<div className="axew-img">
 					<img alt="axew" src="axew.png" draggable="false" />
 				</div>
-				<CreateLinkForm />
+				<PasteForm mode="create" />
 			</main>
 			<Footer />
 		</>
 	);
 };
 
-export default Home;
+export default PasteHome;
