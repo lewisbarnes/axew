@@ -1,0 +1,10 @@
+{
+  "Version": "12.4.1",
+	"Name": "axew",
+  "DestinationType": "URLShortener",
+  "RequestMethod": "POST",
+  "RequestURL": "https://axew.lewisbarnes.dev/api/url/shorten",
+  "Body": "JSON",
+	"Data": "{ \"url\": \"$input$\" }",
+	"URL": "$json:shortLink$"
+}
