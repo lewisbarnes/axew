@@ -24,7 +24,8 @@ const PasteCreateHandler = async (req: NextApiRequest, res: NextApiResponse) => 
 			select: {slug: true},
 		});
 		res.statusCode = 201;
-		return res.json({pasteURL: `https://${req.headers.host}/paste/${data.slug}`});
+		const protocol = process.env.NODE_ENV == "development" ? "http" : "https";
+		return res.json({pasteURL: `${protocol}://${req.headers.host}/paste/${data.slug}`});
 	} else {
 		res.statusCode = 405;
 		res.send(JSON.stringify({message: 'only POST requests are allowed on this endpoint'}));

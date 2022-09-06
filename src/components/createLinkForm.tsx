@@ -61,7 +61,7 @@ const CreateLinkForm: React.FC = () => {
 						}}
 					/>
 				</div>
-				<input type="button" className="button" value="create" onClick={createSlug} />
+				<input type="button" className="button centered" value="create" onClick={createSlug} />
 			</form>
 		);
 	}

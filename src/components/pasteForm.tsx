@@ -1,7 +1,5 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { json } from "stream/consumers";
-
 
 const PasteForm : React.FC<{slug?: string; mode: string}> = ({slug, mode}) => {
 
@@ -35,6 +33,7 @@ const PasteForm : React.FC<{slug?: string; mode: string}> = ({slug, mode}) => {
 			return (
 				<form className="center-container">
 					<textarea className="paste-area" value={pasteValue} disabled={true}></textarea>
+					<a href={`${host}/paste/${slug}/raw`} className="button centered">view raw</a>
 				</form>
 			);
 	} else if(mode === 'create') {

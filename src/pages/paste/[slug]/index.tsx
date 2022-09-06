@@ -2,9 +2,9 @@ import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { useState } from 'react';
-import Footer from '../../components/footer';
+import Footer from '../../../components/footer';
 
-const PasteForm = dynamic(() => import('../../components/pasteForm'), {
+const PasteForm = dynamic(() => import('../../../components/pasteForm'), {
 	ssr: false,
 });
 
@@ -31,7 +31,7 @@ const PasteHome: NextPage<{ slug: string }> = ({ slug }) => {
 	);
 };
 
-PasteHome.getInitialProps = async ({ query }) => {
+PasteHome.getInitialProps = async ({ query,res }) => {
 	if (query) {
 		const slug = query['slug'];
 		if (typeof slug === 'string') {
