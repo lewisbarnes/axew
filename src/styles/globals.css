@@ -27,6 +27,15 @@ body {
   box-sizing: border-box;
 }
 
+@font-face {
+	font-family: fira-code;
+	src: url("../../public/FiraCode-Regular.ttf");
+}
+
+textarea {
+	font-family: fira-code;
+}
+
 .input-form {
 	display: flex;
 	gap: 0.5rem;

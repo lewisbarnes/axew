@@ -1,4 +1,5 @@
 // src/pages/api/examples.ts
+import { update } from "lodash";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "../../../../server/db/client";
 
@@ -23,6 +24,15 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 		res.send(JSON.stringify({ message: 'slug not found' }));
 		return;
 	}
+
+	await prisma.shortlink.update({
+		where: {
+			slug: slug,
+		},
+		data: {
+			hits: data!.hits! + 1,
+		},
+	});
 
 	res.setHeader('Content-Type','application/json');
 	res.setHeader('Access-Control-Allow-Origin','*');
