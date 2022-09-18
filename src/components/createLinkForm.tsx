@@ -12,7 +12,6 @@ const CreateLinkForm: React.FC = () => {
   const host = window.location.origin;
 
   const createSlug = async () => {
-    console.log(`${host}/api/url/create`);
     const slugResponse = await fetch(`${host}/api/url/create`, {
       method: 'POST',
       body: JSON.stringify(form),
@@ -25,6 +24,17 @@ const CreateLinkForm: React.FC = () => {
       setForm({ slug: '', url: '' });
     }
   };
+
+  const getZWS = () => {
+    const zws = ['\u200B', '\u200C', '\u200D', '\u2060'];
+    let slug = '';
+    for (let i = 0; i < 10; i++) {
+      const randomIndex = Math.floor(Math.random() * zws.length);
+      slug += zws[randomIndex];
+    }
+    return slug;
+  };
+
   return (
     <form className="flex flex-col gap-3 mx-auto bg-[#404040] text-white rounded-md p-3 w-full md:w-4/5 lg:w-6/8 xl:w-1/2">
       <div className="flex gap-2">
@@ -38,7 +48,7 @@ const CreateLinkForm: React.FC = () => {
           onChange={(e) => {
             setForm({ ...form, slug: e.target.value });
           }}
-					autoComplete="off"
+          autoComplete="off"
         />
         <input
           className="bg-[#a6ae89] px-3 rounded-md text-black"
@@ -46,6 +56,14 @@ const CreateLinkForm: React.FC = () => {
           value="random"
           onClick={(e) => {
             setForm({ ...form, slug: nanoid(10) });
+          }}
+        />
+        <input
+          className="bg-[#a6ae89] px-3 rounded-md text-black"
+          type="button"
+          value="zws"
+          onClick={(e) => {
+            setForm({ ...form, slug: getZWS()});
           }}
         />
       </div>
@@ -63,7 +81,7 @@ const CreateLinkForm: React.FC = () => {
           onChange={(e) => {
             setForm({ ...form, url: e.target.value });
           }}
-					autoComplete="off"
+          autoComplete="off"
         />
       </div>
       {returnShortLink.length > 0 ? (
@@ -76,7 +94,7 @@ const CreateLinkForm: React.FC = () => {
             name="shortlink"
             className="col-start-2 bg-[#404040] border-2 pl-3 rounded-md flex-grow "
             value={returnShortLink}
-						autoComplete="off"
+            autoComplete="off"
           />
         </div>
       ) : (
