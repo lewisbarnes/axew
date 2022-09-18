@@ -25,16 +25,6 @@ const CreateLinkForm: React.FC = () => {
     }
   };
 
-  const getZWS = () => {
-    const zws = ['\u200B', '\u200C', '\u200D', '\u2060'];
-    let slug = '';
-    for (let i = 0; i < 100; i++) {
-      let randomIndex = Math.floor(Math.random() * zws.length);
-      slug += zws[randomIndex];
-    }
-    return slug;
-  };
-
   return (
     <form className="flex flex-col gap-3 mx-auto bg-[#404040] text-white rounded-md p-3 w-full md:w-4/5 lg:w-6/8 xl:w-1/2">
       <div className="flex gap-2 flex-wrap">
