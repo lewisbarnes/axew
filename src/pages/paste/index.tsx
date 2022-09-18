@@ -14,8 +14,7 @@ const PasteHome: NextPage = () => {
 	const [pasteTitle, setPasteTitle] = useState('');
 	return (
 		<>
-			<main>
-				<Head>
+						<Head>
 					<title>axew</title>
 					<meta property="og:title" content="axew" />
 					<meta property="og:description" content="A Link Shortener" />
@@ -23,12 +22,13 @@ const PasteHome: NextPage = () => {
 					<meta property="og:image" content="https://axew.lewisbarnes.dev/axew.png" />
 					<link rel="icon" href="/favicon.ico" />
 				</Head>
-				<div className="axew-img">
-					<img alt="axew" src="axew.png" draggable="false" />
-				</div>
+				<main className="bg-[#313131] p-3 h-screen pb-24 overflow-y-auto">
+
+				<img alt="axew" className="h-24 mx-auto" src="axew.png" draggable="false" />
 				<PasteForm mode="create" />
 			</main>
 			<Footer />
+			
 		</>
 	);
 };

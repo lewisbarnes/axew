@@ -21,7 +21,7 @@ model Shortlink {
 model TextPaste {
   id        Int   @id @default(autoincrement())
   slug      String   @unique
-	content 	String
+	content 	String @db.Text
   createdAt DateTime @default(now())
   expiresAt DateTime @default(now())
 }
