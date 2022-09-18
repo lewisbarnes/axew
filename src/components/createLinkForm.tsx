@@ -28,8 +28,8 @@ const CreateLinkForm: React.FC = () => {
   const getZWS = () => {
     const zws = ['\u200B', '\u200C', '\u200D', '\u2060'];
     let slug = '';
-    for (let i = 0; i < 10; i++) {
-      const randomIndex = Math.floor(Math.random() * zws.length);
+    for (let i = 0; i < 100; i++) {
+      let randomIndex = Math.floor(Math.random() * zws.length);
       slug += zws[randomIndex];
     }
     return slug;
@@ -37,7 +37,7 @@ const CreateLinkForm: React.FC = () => {
 
   return (
     <form className="flex flex-col gap-3 mx-auto bg-[#404040] text-white rounded-md p-3 w-full md:w-4/5 lg:w-6/8 xl:w-1/2">
-      <div className="flex gap-2">
+      <div className="flex gap-2 flex-wrap">
         <label htmlFor="slug">{host}/s/</label>
         <input
           className="bg-[#404040] border-2 pl-3 rounded-md flex-grow"
@@ -58,17 +58,9 @@ const CreateLinkForm: React.FC = () => {
             setForm({ ...form, slug: nanoid(10) });
           }}
         />
-        <input
-          className="bg-[#a6ae89] px-3 rounded-md text-black"
-          type="button"
-          value="zws"
-          onClick={(e) => {
-            setForm({ ...form, slug: getZWS()});
-          }}
-        />
       </div>
 
-      <div className="flex gap-3">
+      <div className="flex gap-3 flex-wrap">
         <label htmlFor="url" className="text-right">
           url
         </label>
@@ -85,7 +77,7 @@ const CreateLinkForm: React.FC = () => {
         />
       </div>
       {returnShortLink.length > 0 ? (
-        <div className="flex gap-3">
+        <div className="flex gap-3 flex-wrap">
           <label htmlFor="shortlink" className="col-start-1 text-right">
             short-link
           </label>
