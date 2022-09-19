@@ -2,11 +2,7 @@ import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import Footer from '../components/footer';
-
-type Form = {
-  slug: string;
-  url: string;
-};
+import Image from 'next/image';
 
 const CreateLinkForm = dynamic(() => import('../components/createLinkForm'), {
   ssr: false,
@@ -24,7 +20,16 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="bg-[#313131] p-3 overflow-y-auto flex flex-col h-screen">
-        <img alt="axew" className="h-24 mx-auto" src="axew.png" draggable="false" />
+			<div className='w-32 mx-auto'>
+				<Image
+				alt="axew"
+				src="/axew.png"
+				width="100%"
+				height="100%"
+				layout='responsive'
+				objectFit='contain'
+					/>
+				</div>
         <CreateLinkForm />
 				<div className="flex-grow">
 				</div>
