@@ -20,7 +20,7 @@ const CreateLinkForm: React.FC = () => {
     if (slugResponse.status === 400) {
       setReturnShortLink(respMessage.message);
     } else {
-      setReturnShortLink(`${host}/s/${respMessage.slug}`);
+      setReturnShortLink(`${host}/${respMessage.slug}`);
       setForm({ slug: '', url: '' });
     }
   };
@@ -28,7 +28,7 @@ const CreateLinkForm: React.FC = () => {
   return (
     <form className="flex flex-col gap-3 mx-auto bg-[#404040] text-white rounded-md p-3 w-full md:w-4/5 lg:w-6/8 xl:w-1/2">
       <div className="flex gap-2 flex-wrap">
-        <label htmlFor="slug">{host}/s/</label>
+        <label htmlFor="slug">{host}/</label>
 				<div className='flex gap-3 flex-grow'>
         <input
           className="bg-[#404040] border-2 pl-3 rounded-md flex-grow"
