@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { prisma } from '../../../server/db/client';
 
 export const CreateHandler = async (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method === 'POST') {
+  if (req.method !== 'POST') {
     res.statusCode = 405;
     res.send(JSON.stringify({ message: 'only POST requests are allowed on this endpoint' }));
   }

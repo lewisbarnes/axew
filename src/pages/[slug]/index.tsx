@@ -15,9 +15,9 @@ export const getServerSideProps: GetServerSideProps = async ({query, req, res}) 
 			res.setHeader('Content-Type',"text/plain");
 			if (data?.url) {
 				res.statusCode = 302;
-				res.setHeader('location',data.url);
 				const oneDayinSeconds = 60 * 60 * 24;
-				res.setHeader('Cache-Control',`s-maxage=${oneDayinSeconds}, stale-while-revalidate`);
+				res.setHeader('location',data.url);
+
 			}
 			res.end();
 		}
