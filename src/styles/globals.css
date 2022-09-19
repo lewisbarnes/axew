@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-img {
-	image-rendering: crisp-edges;
+html {
+	image-rendering: pixelated;
 }
