@@ -9,14 +9,15 @@ export const getServerSideProps: GetServerSideProps = async ({query, req, res}) 
 			const protocol =  process.env.NODE_ENV == "development" ? "http" : "https";
 			const slugFetch = await fetch(`${protocol}://${req.headers.host}/api/url/get/${slug}`);
 			if (slugFetch.status === 404) {
-				res.statusCode = 302;
-				res.setHeader('location',`${req.headers.host}`);
+				res.statusCode = 404;
 			}
 			const data = await slugFetch.json();
 			res.setHeader('Content-Type',"text/plain");
 			if (data?.url) {
 				res.statusCode = 302;
 				res.setHeader('location',data.url);
+				const oneDayinSeconds = 60 * 60 * 24;
+				res.setHeader('Cache-Control',`s-maxage=${oneDayinSeconds}, stale-while-revalidate`);
 			}
 			res.end();
 		}
