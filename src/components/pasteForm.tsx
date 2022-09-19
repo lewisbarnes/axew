@@ -41,12 +41,13 @@ const PasteForm: React.FC<{ slug?: string; mode: string }> = ({ slug, mode }) =>
       {mode === 'view' ? (
         <div className="flex gap-3 justify-center">
           <div className="bg-[#a6ae89] px-3 rounded-md text-black w-max py-1">
-            <a href={`${host}/paste/${slug}/raw`} download={`${slug}.axewpaste`} target="_blank">
+						{/* eslint-disable-next-line react/no-unknown-property */}
+            <a href={`${host}/paste/${slug}/raw`} download={`${slug}.axewpaste`} target="_blank" rel="noreferrer">
 							download
             </a>
           </div>
           <div className="bg-[#a6ae89] px-3 rounded-md text-black w-max py-1">
-            <a href={`${host}/paste/${slug}/raw`} target="_blank">
+            <a href={`${host}/paste/${slug}/raw`} target="_blank" rel="noreferrer">
               raw
             </a>
           </div>

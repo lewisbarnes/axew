@@ -1,6 +1,6 @@
-import { NextFetchEvent, NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function middleware(req: NextRequest, ev: NextFetchEvent) {
+export async function middleware(req: NextRequest) {
   const slug = req.nextUrl.pathname.split("/").pop();
 
   const slugFetch = await fetch(`${req.nextUrl.origin}/api/url/get/${slug}`);

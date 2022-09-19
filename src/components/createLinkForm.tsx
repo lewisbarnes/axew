@@ -45,7 +45,7 @@ const CreateLinkForm: React.FC = () => {
           className="bg-[#a6ae89] px-3 rounded-md text-black"
           type="button"
           value="random"
-          onClick={(e) => {
+          onClick={() => {
             setForm({ ...form, slug: nanoid(10) });
           }}
         />
