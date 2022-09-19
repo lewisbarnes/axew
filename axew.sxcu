@@ -3,7 +3,7 @@
 	"Name": "axew",
   "DestinationType": "URLShortener",
   "RequestMethod": "POST",
-  "RequestURL": "https://axew.lewisbarnes.dev/api/url/shorten",
+  "RequestURL": "https://s.lewisbarnes.dev/api/url/shorten",
   "Body": "JSON",
 	"Data": "{ \"url\": \"$input$\" }",
 	"URL": "$json:shortLink$"
