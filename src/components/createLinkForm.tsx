@@ -29,6 +29,7 @@ const CreateLinkForm: React.FC = () => {
     <form className="flex flex-col gap-3 mx-auto bg-[#404040] text-white rounded-md p-3 w-full md:w-4/5 lg:w-6/8 xl:w-1/2">
       <div className="flex gap-2 flex-wrap">
         <label htmlFor="slug">{host}/s/</label>
+				<div className='flex gap-3 flex-grow'>
         <input
           className="bg-[#404040] border-2 pl-3 rounded-md flex-grow"
           type="text"
@@ -48,6 +49,8 @@ const CreateLinkForm: React.FC = () => {
             setForm({ ...form, slug: nanoid(10) });
           }}
         />
+				</div>
+
       </div>
 
       <div className="flex gap-3 flex-wrap">

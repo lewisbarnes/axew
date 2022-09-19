@@ -15,12 +15,4 @@ function defineNextConfig(config) {
 export default defineNextConfig({
   reactStrictMode: true,
   swcMinify: true,
-	redirects: () => {return( [
-		{
-			source: '/src',
-			destination: 'https://github.com/lewisbarnes/axew',
-			permanent: true,
-			basePath: false,
-		},
-	])},
 });

@@ -20,11 +20,13 @@ const PasteHome: NextPage<{ slug: string }> = ({ slug }) => {
         <meta property="og:image" content="https://axew.lewisbarnes.dev/axew.png" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="bg-[#313131] p-3 h-screen relative pb-24 overflow-y-auto">
+      <main className="bg-[#313131] p-3 overflow-y-auto flex flex-col min-h-screen">
         <img alt="axew" className="h-24 mx-auto" src="../axew.png" draggable="false" />
         <PasteForm slug={slug} mode="view" />
+				<div className='flex-grow'></div>
+				<Footer />
       </main>
-      <Footer />
+      
     </>
   );
 };
@@ -36,7 +38,6 @@ PasteHome.getInitialProps = async ({ query, res }) => {
       return { slug: slug };
     }
   }
-
   return { slug: '' };
 };
 

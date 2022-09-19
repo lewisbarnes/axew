@@ -14,8 +14,7 @@ const CreateLinkForm = dynamic(() => import('../components/createLinkForm'), {
 
 const Home: NextPage = () => {
   return (
-    <>
-      {' '}
+    <div className='h-full'>
       <Head>
         <title>axew</title>
         <meta property="og:title" content="axew" />
@@ -24,12 +23,15 @@ const Home: NextPage = () => {
         <meta property="og:image" content="https://axew.lewisbarnes.dev/axew.png" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="h-screen bg-[#313131] p-3 pb-24 overflow-y-auto">
+      <main className="bg-[#313131] p-3 overflow-y-auto flex flex-col h-screen">
         <img alt="axew" className="h-24 mx-auto" src="axew.png" draggable="false" />
         <CreateLinkForm />
+				<div className="flex-grow">
+				</div>
+				<Footer />
       </main>
-      <Footer />
-    </>
+
+    </div>
   );
 };
 
