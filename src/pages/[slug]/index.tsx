@@ -17,7 +17,6 @@ export const getServerSideProps: GetServerSideProps = async ({query, req, res}) 
 				res.statusCode = 302;
 				const oneDayinSeconds = 60 * 60 * 24;
 				res.setHeader('location',data.url);
-
 			}
 			res.end();
 		}

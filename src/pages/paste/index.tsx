@@ -23,20 +23,8 @@ const PasteHome: NextPage = () => {
         <meta property="og:image" content="https://axew.lewisbarnes.dev/axew.png" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="bg-[#313131] p-3 overflow-y-auto flex flex-col min-h-screen">
-			<div className='w-32 mx-auto'>
-				<Image
-				alt="axew"
-				src="/axew.png"
-				width="100%"
-				height="100%"
-				layout='responsive'
-				objectFit='contain'
-					/>
-				</div>
+      <main className="bg-[#313131] p-3 overflow-y-auto flex flex-col">
         <PasteForm mode="create" />
-        <div className="flex-grow"></div>
-				<Footer />
       </main>
       
     </>
